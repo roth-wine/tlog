@@ -215,6 +215,8 @@ class TestTlogRecSession:
         """
         Pipe I/O through stdin
         """
+        sessionclass = TlogRecSessionConfig(log_input=True)
+        sessionclass.generate_config(SYSTEM_TLOG_REC_SESSION_CONF)
         text_in_stdio = 'print("hello world")\n'
         text_out = "hello world"
         p = Popen(['sshpass', '-p', 'Secret123', 'ssh', '-o',
